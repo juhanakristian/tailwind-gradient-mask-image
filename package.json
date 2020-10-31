@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/juhanakristian/tailwind-gradient-mask-image/issues"
   },
-  "homepage": "https://github.com/juhanakristian/tailwind-gradient-mask-image#readme"
+  "homepage": "https://github.com/juhanakristian/tailwind-gradient-mask-image#readme",
+  "devDependencies": {
+    "tailwindcss": "^1.9.6"
+  }
 }
