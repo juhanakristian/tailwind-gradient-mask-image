@@ -12,9 +12,11 @@
   },
   "keywords": [
     "tailwind",
-    "css"
+    "tailwindcss",
+    "css",
+    "mask"
   ],
-  "author": "Juhana Jauhiainen",
+  "author": "Juhana Jauhiainen <juhana.jauhiainen@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/juhanakristian/tailwind-gradient-mask-image/issues"

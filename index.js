@@ -3,53 +3,51 @@ const plugin = require("tailwindcss/plugin");
 module.export = {
   plugins: [
     plugin(function ({ addUtilities }) {
-      const directions = [
-        "to-bottom",
-        "to-top",
-        "to-left",
-        "to-right",
-        "to-bottom-right",
-        "to-bottom-left",
-        "to-top-right",
-        "to-top-left",
-      ];
-
-      const newUtilities = {
-        ".gradient-mask-bottom": {
-          maskImage:
-            "linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
-        ".gradient-mask-top": {
-          maskImage:
-            "linear-gradient(to top, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
-        ".gradient-mask-left": {
-          maskImage:
-            "linear-gradient(to left, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
-        ".gradient-mask-right": {
-          maskImage:
-            "linear-gradient(to right, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
-        ".gradient-mask-bottom-left": {
-          maskImage:
-            "linear-gradient(to bottom left, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
-        ".gradient-mask-bottom-right": {
-          maskImage:
-            "linear-gradient(to bottom right, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
-        ".gradient-mask-top-left": {
-          maskImage:
-            "linear-gradient(to top left, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
-        ".gradient-mask-top-right": {
-          maskImage:
-            "linear-gradient(to top right, rgba(0, 0, 0, 1.0) 0%, transparent 100%)",
-        },
+      const directions = {
+        t: "to top",
+        tr: "to top right",
+        r: "to right",
+        br: "to bottom right",
+        b: "to bottom",
+        bl: "to bottom left",
+        l: "to left",
+        tl: "to top left",
       };
 
-      addUtilities(newUtilities);
+      const steps = [
+        "0%",
+        "10%",
+        "20%",
+        "30%",
+        "40%",
+        "50%",
+        "60%",
+        "70%",
+        "80%",
+        "90%",
+      ];
+
+      const utilities = Object.entries(directions).reduce(
+        (result, [shorthand, direction]) => {
+          const variants = steps.map((step) => {
+            const className = `.gradient-mask-${shorthand}-${step}`;
+            return {
+              [className]: {
+                maskImage: `linear-gradient(${direction}, rgba(0, 0, 0, 1.0) ${step}, transparent 100%)`,
+              },
+            };
+          });
+
+          const stepClasses = Object.assign(...variants);
+          return {
+            ...result,
+            ...stepClasses,
+          };
+        },
+        {}
+      );
+
+      addUtilities(utilities);
     }),
   ],
 };
