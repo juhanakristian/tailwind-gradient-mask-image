@@ -22,7 +22,7 @@ Add the plugin to your `tailwind.config.js`
 
 ```js
 {
-    plugins: ["tailwind-gradient-mask-image"]
+    plugins: [require("tailwind-gradient-mask-image")()]
 }
 ```
 
