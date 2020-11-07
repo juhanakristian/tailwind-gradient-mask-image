@@ -1,6 +1,6 @@
 {
   "name": "tailwind-gradient-mask-image",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A plugin for Tailwind CSS for masking elements using mask-image and linear-gradient.",
   "main": "index.js",
   "scripts": {
