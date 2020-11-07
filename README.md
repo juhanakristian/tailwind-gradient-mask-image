@@ -1,10 +1,12 @@
 # Gradient Mask plugin for Tailwind CSS
 
-Tailwind CSS plugin for addint `mask-image` with a `linear-gradient` on a HTML element.
+Tailwind CSS plugin for adding `mask-image` with a `linear-gradient` on a HTML element.
+
+<img src="screenshot.png" width="400">
+
+Try it out in [Tailwind CSS Playground](https://play.tailwindcss.com/ZAQrbYa3wH)
 
 [MDN docs on mask-image](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image)
-
-[Try it out](https://play.tailwindcss.com/ZAQrbYa3wH)
 
 ## Installation
 
@@ -24,7 +26,7 @@ Add the plugin to your `tailwind.config.js`
 
 ```js
 {
-    plugins: [require("tailwind-gradient-mask-image")()]
+    plugins: [require("tailwind-gradient-mask-image")]
 }
 ```
 
