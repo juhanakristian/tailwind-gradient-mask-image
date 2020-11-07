@@ -4,6 +4,8 @@ Tailwind CSS plugin for addint `mask-image` with a `linear-gradient` on a HTML e
 
 [MDN docs on mask-image](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image)
 
+[Try it out](https://play.tailwindcss.com/ZAQrbYa3wH)
+
 ## Installation
 
 With npm
