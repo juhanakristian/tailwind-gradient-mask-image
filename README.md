@@ -33,7 +33,7 @@ Add the plugin to your `tailwind.config.js`
 ## Usage
 
 ```html
-<div class="gradient-mask-t-0%">
+<div class="gradient-mask-t-0">
     ...
 </div>
 ```

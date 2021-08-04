@@ -12,18 +12,7 @@ module.exports = plugin(function ({ addUtilities }) {
     tl: "to top left",
   };
 
-  const steps = [
-    "0%",
-    "10%",
-    "20%",
-    "30%",
-    "40%",
-    "50%",
-    "60%",
-    "70%",
-    "80%",
-    "90%",
-  ];
+  const steps = ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90"];
 
   const utilities = Object.entries(directions).reduce(
     (result, [shorthand, direction]) => {
@@ -31,7 +20,7 @@ module.exports = plugin(function ({ addUtilities }) {
         const className = `.gradient-mask-${shorthand}-${step}`;
         return {
           [className]: {
-            maskImage: `linear-gradient(${direction}, rgba(0, 0, 0, 1.0) ${step}, transparent 100%)`,
+            maskImage: `linear-gradient(${direction}, rgba(0, 0, 0, 1.0) ${step}%, transparent 100%)`,
           },
         };
       });
