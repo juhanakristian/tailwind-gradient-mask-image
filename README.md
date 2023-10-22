@@ -66,3 +66,25 @@ Direction shorthands
 
 The gradient start percentages go from 0% to 100% with 10% gaps.
 
+
+## Arbitrary values
+
+You can use arbitrary values to specify unique steps towards a specific direction
+
+```html
+<div class="gradient-mask-t-[transparent,rgba(0,0,0,1.0)_30px,rgba(0,0,0,0.5)_40%]">
+    ...
+</div>
+```
+
+The class above matches the following css
+
+```css
+.class {
+    mask-image: linear-gradient(to top, transparent, rgba(0,0,0,1.0) 30px, rgba(0,0,0,0.5) 40%, transparent 100%)
+}
+```
+
+> A transparent at 100% will always be set to keep a specific direction
+> You can always add `transparent_80%` in your abitrary value in order to have the last 20% fully masked
+
