@@ -1,6 +1,13 @@
 const plugin = require("tailwindcss/plugin");
 const splitAtTopLevelOnly = require('tailwindcss/util/splitAtTopLevelOnly')
 
+function generateMaskImage(direction, steps) {
+    return {
+     maskImage: `linear-gradient(${direction}, ${steps.join(', ')}, transparent 100%)`
+    }
+}
+
+
 module.exports = plugin(function ({ addUtilities: addComponents, matchUtilities: matchComponents }) {
   const directions = {
     t: "to top",
@@ -23,15 +30,11 @@ module.exports = plugin(function ({ addUtilities: addComponents, matchUtilities:
         if (step.includes("-")) {
           const substep = Number(step.split("-")[0]);
           return {
-            [className]: {
-              maskImage: `linear-gradient(${direction}, transparent, rgba(0, 0, 0, 1.0) ${100 - substep}%, rgba(0, 0, 0, 1.0) ${substep}%, transparent 100%)`,
-            },
+            [className]: generateMaskImage(direction, ['transparent', `rgba(0, 0, 0, 1.0) ${100-Number(step)}%`, `rgba(0, 0, 0, 1.0) ${step}%`]),
           };
         };
         return {
-          [className]: {
-            maskImage: `linear-gradient(${direction}, rgba(0, 0, 0, 1.0) ${step}%, transparent 100%)`,
-          },
+          [className]: generateMaskImage(direction, [`rgba(0, 0, 0, 1.0) ${step}%`]),
         };
       });
 
@@ -53,9 +56,7 @@ module.exports = plugin(function ({ addUtilities: addComponents, matchUtilities:
       [className]: (value) => {
         const steps = splitAtTopLevelOnly(value, ',').map(step => step.trim().replaceAll('_', ' '))
 
-        return {
-          maskImage: `linear-gradient(${direction}, ${steps.join(', ')}, transparent 100%)`
-        }
+        return generateMaskImage(direction, steps)
       }
     }
 
