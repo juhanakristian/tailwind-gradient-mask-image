@@ -1,7 +1,7 @@
 const plugin = require("tailwindcss/plugin");
 const splitAtTopLevelOnly = require('tailwindcss/util/splitAtTopLevelOnly')
 
-module.exports = plugin(function ({ addUtilities, matchUtilities }) {
+module.exports = plugin(function ({ addUtilities: addComponents, matchUtilities: matchComponents }) {
   const directions = {
     t: "to top",
     tr: "to top right",
@@ -16,7 +16,7 @@ module.exports = plugin(function ({ addUtilities, matchUtilities }) {
   const BASE_CLASS = ".gradient-mask-"
   const steps = ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "50-d", "60-d", "70-d", "80-d", "90-d"];
 
-  const utilities = Object.entries(directions).reduce(
+  const componentsToAdd = Object.entries(directions).reduce(
     (result, [shorthand, direction]) => {
       const variants = steps.map((step) => {
         const className = `${BASE_CLASS}${shorthand}-${step}`;
@@ -44,27 +44,26 @@ module.exports = plugin(function ({ addUtilities, matchUtilities }) {
     {}
   );
 
-  addUtilities(utilities);
+  addComponents(componentsToAdd);
 
-const utilitiesToMatch = Object.entries(directions).reduce((result, [shorthand, direction]) => {
+  const utilitiesToMatch = Object.entries(directions).reduce((result, [shorthand, direction]) => {
     const className = `${BASE_CLASS}${shorthand}`
 
     const matchUtility = {
-        [className]: (value) => {
-            Vjconsole.log(value)
-            const steps = splitAtTopLevelOnly(steps, ',').map(step => step.trim().replaceAll('_', ' '))
+      [className]: (value) => {
+        const steps = splitAtTopLevelOnly(value, ',').map(step => step.trim().replaceAll('_', ' '))
 
-            return {
-                maskImage: `linear-gradient(${direction}, ${steps.join(', ')}, transparent 100%)`
-            } 
+        return {
+          maskImage: `linear-gradient(${direction}, ${steps.join(', ')}, transparent 100%)`
         }
+      }
     }
 
     return {
-        ...result,
-        ...matchUtility
+      ...result,
+      ...matchUtility
     }
-})
+  })
 
-    matchUtilities(utilitiesToMatch, {values: theme('maskImage')})
+  matchComponents(utilitiesToMatch, {values: theme('maskImage')})
 });

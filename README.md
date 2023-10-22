@@ -86,5 +86,6 @@ The class above matches the following css
 ```
 
 > A transparent at 100% will always be set to keep a specific direction
-> You can always add `transparent_80%` in your abitrary value in order to have the last 20% fully masked
+>
+> You can always add `transparent_80%` at the end of your abitrary value to have the last 20% fully masked
 
