@@ -47,6 +47,7 @@ The class above matches the css
 }
 ```
 
+> Using `gradient-mask-none` will set the CSS property to `mask-image: none`. This can be used in combination of breakpoints for device-specific behaviors
 
 ## Variations
 
@@ -61,7 +62,7 @@ Direction shorthands
   bl: "to bottom left",
   l: "to left",
   tl: "to top left",
-}
+} 
 ```
 
 The gradient start percentages go from 0% to 100% with 10% gaps.
