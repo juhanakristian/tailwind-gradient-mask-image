@@ -22,12 +22,14 @@ module.exports = plugin(function ({ addUtilities }) {
           const substep = Number(step.split("-")[0]);
           return {
             [className]: {
+              "-webkitMaskImage": `linear-gradient(${direction}, transparent, rgba(0, 0, 0, 1.0) ${100 - substep}%, rgba(0, 0, 0, 1.0) ${substep}%, transparent 100%)`,
               maskImage: `linear-gradient(${direction}, transparent, rgba(0, 0, 0, 1.0) ${100 - substep}%, rgba(0, 0, 0, 1.0) ${substep}%, transparent 100%)`,
             },
           };
         };
         return {
           [className]: {
+            "-webkitMaskImage": `linear-gradient(${direction}, rgba(0, 0, 0, 1.0) ${step}%, transparent 100%)`,
             maskImage: `linear-gradient(${direction}, rgba(0, 0, 0, 1.0) ${step}%, transparent 100%)`,
           },
         };
