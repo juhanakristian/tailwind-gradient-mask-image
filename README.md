@@ -47,6 +47,7 @@ The class above matches the css
 }
 ```
 
+> Using `gradient-mask-none` will set the CSS property to `mask-image: none`. This can be used in combination of breakpoints for device-specific behaviors
 
 ## Variations
 
@@ -61,8 +62,31 @@ Direction shorthands
   bl: "to bottom left",
   l: "to left",
   tl: "to top left",
-}
+} 
 ```
 
 The gradient start percentages go from 0% to 100% with 10% gaps.
+
+
+## Arbitrary values
+
+You can use arbitrary values to specify unique steps towards a specific direction
+
+```html
+<div class="gradient-mask-t-[transparent,rgba(0,0,0,1.0)_30px,rgba(0,0,0,0.5)_40%]">
+    ...
+</div>
+```
+
+The class above matches the following css
+
+```css
+.class {
+    mask-image: linear-gradient(to top, transparent, rgba(0,0,0,1.0) 30px, rgba(0,0,0,0.5) 40%, transparent 100%)
+}
+```
+
+> A transparent at 100% will always be set to keep a specific direction
+>
+> You can always add `transparent_80%` at the end of your abitrary value to have the last 20% fully masked
 
