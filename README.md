@@ -4,8 +4,7 @@ Tailwind CSS plugin for adding `mask-image` with a `linear-gradient` on a HTML e
 
 <img src="screenshot.png" width="400">
 
-Try it out in [Tailwind CSS Playground](https://play.tailwindcss.com/8RotLjVqYm)
-
+Try it out in [Tailwind CSS Playground](https://play.tailwindcss.com/HgR0n92v0H)
 [MDN docs on mask-image](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image)
 
 ## Installation
