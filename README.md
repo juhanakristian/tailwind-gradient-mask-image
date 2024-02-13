@@ -66,6 +66,10 @@ Direction shorthands
 
 The gradient start percentages go from 0% to 100% with 10% gaps.
 
+Adding `-d` after the percentage value will mirror the gradient. For example, `gradient-mask-t-80-d` will apply the gradient towards both top and bottom, or `gradient-mask-r-60-d` would apply the gradient towards both left and right.
+
+> It is not possible to specify more than one gradient per html element. For example, `gradient-mask-t-80-d gradient-mask-b-80-d` will work in only one direction, but the `-d` option described above can be used to apply the gradient in both directions.
+
 
 ## Arbitrary values
 
